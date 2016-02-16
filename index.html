@@ -1,2 +1,79 @@
-# malodo_doctissimo
-bannières pub
+<!doctype html>
+<html>
+<head>
+  <meta chasert="utf-8">
+  <title></title>
+  <style>
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      height: 200px;
+      width: 1000px;
+    }
+  
+    
+  </style>
+  <script src="http://ww690.smartadserver.com/call/cliccommand/15140934/[timestamp]?"> </script>
+  <script type="text/javascript">
+  var clickTag = "http://www.concours-sesame.net/mySesame";
+  </script>
+  
+  <script>
+    "use strict";
+    
+    // https://developers.google.com/youtube/iframe_api_reference?hl=fr#Getting_Started
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    // 3. This function creates an <iframe> (and YouTube player)
+    //    after the API code downloads.
+    var player;
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player', {
+        height: '200',
+        width: '356',
+        videoId: 'gapo3kXOp9o',
+        playerVars: {
+          controls: 0,
+          loop: 1,
+          showinfo: 0,
+          modestbranding: 1
+        },
+        events: {
+          'onReady': function onPlayerReady(event) {
+            event.target.mute();
+            event.target.playVideo();
+          },
+          onStateChange: function(event){
+            console.log('state change', event.data)
+            // loop video
+            if (event.data === YT.PlayerState.ENDED) {
+              event.target.playVideo(); 
+            }
+          }
+        }
+      })
+    }
+
+    document.addEventListener('DOMContentLoaded', function(){
+      var container = document.getElementsByTagName('a')[0];
+      container.addEventListener('mouseover', function(){
+        player.unMute();
+      })
+      container.addEventListener('mouseleave', function(){
+        player.mute();
+      })
+    })
+  </script>
+</head>
+<body>
+  <a href="javascript:window.open(window.clickTag, '_blank')">
+    <img width="300" src="SESAME_LEFT.png">
+    <div id="player"></div>
+    <img width="300" src="SESAME_RIGHT.png">
+  </a>
+</body>
+</html>
